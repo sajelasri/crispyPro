@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Funny Future</title>
+  <style>
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      text-align: center;
+      background: linear-gradient(to right, teal, lightseagreen);
+    }
+
+    .box {
+      margin-top: 100px;
+      padding: 30px;
+      background: rgba(225, 220, 225, 0.64);
+      border-radius: 15px;
+      display: inline-block;
+      box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    }
+
+    p {
+      font-size: 20px;
+      margin: 15px 0;
+    }
+
+    #loading {
+      font-size: 22px;
+      color: #fff;
+      margin-top: 100px;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="loading">Predicting your funny future... 🤔⏳</div>
+
+  <div id="result" class="box" style="display: none;">
+    <h2>Your Funny Prediction 😂</h2>
+    <p id="Fiance"></p>
+    <p id="MarriageAge"></p>
+    <p id="MarriageType"></p>
+  </div>
+
+  <script>
+    let name = localStorage.getItem("username") || "";
+    let age = localStorage.getItem("userage") || "";
+
+    let firstletter = name.charAt(0).toUpperCase();
+
+    const predictions = {
+      A: { fiance: "B, R", age: 25, type: "Runaway marriage 💃" },
+      B: { fiance: "C", age: 27, type: "Arranged marriage 💑" },
+      C: { fiance: "D", age: 30, type: "Runaway marriage 💃" },
+      D: { fiance: "A", age: 22, type: "Arranged marriage 💑" },
+      E: { fiance: "S", age: 31, type: "Arranged marriage 💑" },
+      F: { fiance: "E", age: 29, type: "Runaway marriage 💃" },
+      G: { fiance: "F", age: 24, type: "Runaway marriage 💃" },
+      H: { fiance: "A", age: 22, type: "Arranged marriage 💑" },
+      I: { fiance: "J", age: 14, type: "Runaway marriage 💃" },
+      J: { fiance: "S", age: 32, type: "Arranged marriage 💑" },
+      K: { fiance: "R", age: 34, type: "Runaway marriage 💃" },
+      L: { fiance: "M", age: 32, type: "Arranged marriage 💑" },
+      M: { fiance: "N", age: 20, type: "Runaway marriage 💃" },
+      N: { fiance: "T", age: 23, type: "Arranged marriage 💑" },
+      O: { fiance: "K", age: 28, type: "Runaway marriage 💃" },
+      P: { fiance: "S", age: 25, type: "Arranged marriage 💑" },
+      Q: { fiance: "P", age: 38, type: "Runaway marriage 💃" },
+      R: { fiance: "V, A", age: 32, type: "Arranged marriage 💑" },
+      S: { fiance: "E, D, S, N", age: 30, type: "Runaway marriage 💃" },
+      T: { fiance: "A", age: 42, type: "Arranged marriage 💑" },
+      U: { fiance: "G", age: 20, type: "Runaway marriage 💃" },
+      V: { fiance: "N", age: 23, type: "Vaip illa Raja 😅💍" },
+      W: { fiance: "K", age: 20, type: "Runaway marriage 💃" },
+      X: { fiance: "S", age: 40, type: "Arranged marriage 💑" },
+      Y: { fiance: "P", age: 28, type: "Runaway marriage 💃" },
+      Z: { fiance: "V or A", age: 32, type: "Arranged marriage 💑" }
+    };
+
+    const result = predictions[firstletter] || {
+      fiance: "?",
+      age: "??",
+      type: "Mystery marriage 🕵️‍♂️💍"
+    };
+
+    setTimeout(() => {
+      document.getElementById("loading").style.display = "none";
+      document.getElementById("result").style.display = "block";
+      document.getElementById("Fiance").textContent = "Your fiancé's name starts with: " + result.fiance;
+      document.getElementById("MarriageAge").textContent = "You will be married at age: " + result.age;
+      document.getElementById("MarriageType").textContent = "Type of marriage: " + result.type;
+    }, 3000);
+  </script>
+
+</body>
+</html>
